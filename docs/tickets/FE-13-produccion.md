@@ -1,4 +1,4 @@
-# FE-13 — Legal, borrado de cuenta, Sentry, E2E y despliegue
+# FE-13 — Legal, borrado de cuenta, Sentry, E2E y despliegue en Vercel
 
 | Fase | Depende de | Backend | Rama | Estado |
 | --- | --- | --- | --- | --- |
@@ -14,12 +14,18 @@ Dejar el dashboard listo para usuarios reales y cumplir los requisitos de verifi
 - Playwright con flujos E2E contra los mocks:
   - login → prioritarias → filtrar → guardar canal;
   - conectar una cuenta (mock) → preferencias.
-- Despliegue en Vercel (u otro): variables de entorno, `BACKEND_URL` de producción y dominio propio. La CI ejecuta los E2E.
+- Despliegue en **Vercel** según [despliegue.md](../specs/despliegue.md):
+  - proyecto con Node 22.x y región `iad1`;
+  - variables de Production y Preview (las previews usan mocks);
+  - dominio `app.<dominio>`.
+- Headers de seguridad en `next.config.ts` (CSP con `connect-src wss://api.<dominio>`, `Referrer-Policy`, `nosniff`, `Permissions-Policy`).
+- La CI ejecuta los E2E.
 - Revisión de Lighthouse: accesibilidad ≥ 90 en las vistas principales.
 
 ## Criterios de aceptación
-- El dashboard está desplegado y el flujo completo funciona con el backend de producción.
+- El checklist de [despliegue.md](../specs/despliegue.md#checklist-del-primer-despliegue) está completo.
+- El dashboard está desplegado en `app.<dominio>` y el flujo completo funciona con el backend de producción en Render: login, conexión de Gmail y mensajes en vivo.
 - Los E2E pasan en CI.
 
 ## Specs
-[testing-calidad.md](../specs/testing-calidad.md) · [diseno-ui.md](../specs/diseno-ui.md)
+[despliegue.md](../specs/despliegue.md) · [testing-calidad.md](../specs/testing-calidad.md) · [diseno-ui.md](../specs/diseno-ui.md)

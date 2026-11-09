@@ -52,6 +52,6 @@ Hay un archivo por ticket (`FE-XX-descripcion.md`). La rama de cada ticket se ll
 
 | ID | Título | Depende de | Backend | Estado |
 | --- | --- | --- | --- | --- |
-| [FE-13](FE-13-produccion.md) | Legal, borrado de cuenta, Sentry, E2E y despliegue | todos | BE-21, BE-22 | ⬜ |
+| [FE-13](FE-13-produccion.md) | Legal, borrado de cuenta, Sentry, E2E y despliegue en Vercel | todos | BE-21, BE-22 | ⬜ |
 
 **Orden sugerido:** FE-01 → FE-02 → FE-03 → FE-07 (con mocks) → FE-04 → FE-05 → FE-06 → FE-08 → FE-09 → FE-10 → FE-11 → FE-12 → FE-13.

@@ -42,7 +42,7 @@ qk.unreadCounts()               // GET /channels/unread-counts
 
 ## Tiempo real (WebSocket)
 
-1. `RealtimeProvider` (dentro del layout `(app)`) pide `POST /auth/ws-ticket` y abre `new WebSocket(`${NEXT_PUBLIC_WS_URL}/ws?ticket=...`)`.
+1. `RealtimeProvider` (dentro del layout `(app)`) pide `POST /auth/ws-ticket` y abre (en producción, `NEXT_PUBLIC_WS_URL=wss://api.<dominio>/api/v1`) `new WebSocket(`${NEXT_PUBLIC_WS_URL}/ws?ticket=...`)`.
 2. Se reconecta con backoff exponencial (1 s → 30 s), pidiendo un ticket nuevo cada vez. Al reconectar, invalida `qk.messages` y `qk.unreadCounts` para recuperar lo que se haya perdido.
 3. Despacho de eventos:
 
