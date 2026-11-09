@@ -10,6 +10,7 @@ Cada archivo cubre un tema. Si un ticket cambia algo de lo que se describe aquí
 | [integracion-api.md](integracion-api.md) | Proxy, auth, tipos generados, TanStack Query, WebSocket y mocks |
 | [diseno-ui.md](diseno-ui.md) | Sistema de diseño, bandas de prioridad, accesibilidad |
 | [ejecucion-local.md](ejecucion-local.md) | Cómo levantar el proyecto en local |
+| [despliegue.md](despliegue.md) | Producción en Vercel: proyecto, variables por entorno, dominios, headers y checklist |
 | [variables-entorno.md](variables-entorno.md) | Variables de entorno |
 | [testing-calidad.md](testing-calidad.md) | Tests, lint y CI |
 
