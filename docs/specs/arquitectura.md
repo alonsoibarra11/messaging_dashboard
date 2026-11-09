@@ -27,14 +27,14 @@ Navegador ──► Next.js (este repo) ──rewrites /api/*──► API gatew
 | `/perfil` | **Perfil**: datos, servicios y resumen de preferencias | sí | FE-04 |
 | `/privacidad`, `/terminos` | Textos legales | no | FE-13 |
 
-Las rutas protegidas usan `middleware.ts`: si no existe la cookie `has_session`, se redirige a `/login?next=...`. La autorización real la hace el backend; ante un 401 de la API, el cliente intenta `/auth/refresh` una vez y, si falla, redirige a `/login`.
+Las rutas protegidas usan `proxy.ts` (en Next.js 16, `middleware.ts` pasó a llamarse `proxy.ts`): si no existe la cookie `has_session`, se redirige a `/login?next=...`. La autorización real la hace el backend; ante un 401 de la API, el cliente intenta `/auth/refresh` una vez y, si falla, redirige a `/login`.
 
 ## Estructura de carpetas (propuesta)
 
 ```
 messaging_dashboard/
 ├── next.config.ts            # rewrites /api/v1/* → BACKEND_URL
-├── middleware.ts             # protección de rutas por cookie de presencia
+├── src/proxy.ts              # protección de rutas por cookie de presencia (antes "middleware")
 ├── src/
 │   ├── app/
 │   │   ├── (auth)/login/  (auth)/registro/

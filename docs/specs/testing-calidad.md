@@ -14,12 +14,12 @@
 ## Verificación antes de mergear
 
 ```bash
-pnpm lint && pnpm typecheck && pnpm test && pnpm build
+pnpm lint && pnpm format:check && pnpm typecheck && pnpm test && pnpm build
 ```
 
 ## CI (GitHub Actions)
 
-En cada push y PR: `pnpm install --frozen-lockfile`, lint, typecheck, tests y build (con `NEXT_PUBLIC_API_MOCKING=enabled` para no depender del backend).
+En cada push y PR (`.github/workflows/ci.yml`): `pnpm install --frozen-lockfile`, lint + `format:check`, typecheck, tests y build (con `NEXT_PUBLIC_API_MOCKING=enabled` para no depender del backend).
 
 ## Convenciones
 

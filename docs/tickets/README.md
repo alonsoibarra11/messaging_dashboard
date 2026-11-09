@@ -10,7 +10,7 @@ Hay un archivo por ticket (`FE-XX-descripcion.md`). La rama de cada ticket se ll
 
 | ID | Título | Depende de | Backend | Estado |
 | --- | --- | --- | --- | --- |
-| [FE-01](FE-01-scaffolding-proyecto.md) | Scaffolding: Next.js, Tailwind, shadcn, Vitest, CI | — | — | ⬜ |
+| [FE-01](FE-01-scaffolding-proyecto.md) | Scaffolding: Next.js, Tailwind, shadcn, Vitest, CI | — | — | ✅ |
 | [FE-02](FE-02-shell-cliente-api-mocks.md) | Shell de la app, cliente API tipado y MSW | FE-01 | BE-01 | ⬜ |
 
 ## Fase 1 — Auth y perfil

@@ -1,10 +1,10 @@
 # Ejecución local
 
-> **Estado:** objetivo. Los comandos exactos se confirman al cerrar [FE-01](../tickets/FE-01-scaffolding-proyecto.md); si cambian, actualiza este archivo.
+> **Estado:** el arranque y los comandos están verificados ([FE-01](../tickets/FE-01-scaffolding-proyecto.md)). El modo mock y la conexión con el backend llegan en FE-02 y FE-03.
 
 ## Requisitos
 
-- Node.js LTS (22+) y pnpm (`corepack enable`)
+- Node.js 22.12+ y pnpm (`corepack enable`)
 - Opcional: el backend `messaging_agent_service` corriendo en `http://localhost:8000` (ver su `docs/specs/ejecucion-local.md`)
 
 ## Arranque
@@ -15,7 +15,7 @@ pnpm install
 pnpm dev                       # http://localhost:3000
 ```
 
-### Modo sin backend (mocks)
+### Modo sin backend (mocks, desde FE-02)
 
 ```bash
 NEXT_PUBLIC_API_MOCKING=enabled pnpm dev
@@ -36,9 +36,11 @@ pnpm dev            # servidor de desarrollo
 pnpm build          # build de producción
 pnpm start          # sirve el build
 pnpm lint           # ESLint
-pnpm format         # Prettier
-pnpm typecheck      # tsc --noEmit
-pnpm test           # Vitest
+pnpm format         # Prettier (escribe)
+pnpm format:check   # Prettier (solo verifica, lo usa la CI)
+pnpm typecheck      # next typegen + tsc --noEmit
+pnpm test           # Vitest (una pasada)
+pnpm test:watch     # Vitest en modo watch
 pnpm test:e2e       # Playwright (desde FE-13)
-pnpm gen:api        # regenera src/lib/api/schema.d.ts desde el backend
+pnpm gen:api        # regenera src/lib/api/schema.d.ts desde el backend (desde FE-02)
 ```

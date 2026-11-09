@@ -76,7 +76,13 @@ Usan **scroll-driven animations** (`animation-timeline: scroll()` / `view()`) y 
 - Todo efecto respeta `prefers-reduced-motion: reduce` y en ese caso se desactiva.
 - Solo se animan `opacity`, `transform`/`translate`/`scale` y sombras, nunca propiedades de layout.
 - El scroll infinito de `MessageList` sigue necesitando JavaScript (IntersectionObserver en un sentinel para pedir la página siguiente). CSS se usa solo para la presentación, no para cargar datos.
-- Las utilidades (`reveal-on-scroll`, `scroll-shadow-x`, `scroll-progress`, `header-stuck`) viven en `globals.css` y están documentadas aquí. No se crean variantes por componente.
+- Las utilidades viven en `src/app/globals.css` (implementadas en FE-01) y no se crean variantes por componente:
+  - `scrollbar-thin` y `scrollbar-stable`: barra delgada y `scrollbar-gutter: stable`.
+  - `reveal-on-scroll`: entrada suave con `view()`.
+  - `scroll-progress`: barra de progreso del contenedor con scroll más cercano. Queda oculta si el navegador no soporta el efecto.
+  - `scroll-shadow-x`: lista horizontal con scroll que difumina solo el borde donde queda contenido.
+  - `header-stuck`: vuelve sticky el elemento (`top: 0`) y aplica sombra a su **hijo directo** cuando queda pegado arriba.
+- Tailwind solo genera estas utilidades si se usan en el código: no aparecen en el CSS hasta que algún componente las usa.
 
 ## Estados obligatorios en cada vista
 
