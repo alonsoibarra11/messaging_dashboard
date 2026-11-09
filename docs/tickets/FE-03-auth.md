@@ -10,7 +10,7 @@ Que el usuario pueda registrarse, iniciar sesión (con email o con Google) y cer
 ## Alcance
 - `/login` y `/registro` con `LoginForm`, `RegisterForm` (react-hook-form + zod) y `GoogleButton`.
 - Errores de la API mostrados en línea: 401 → "Email o contraseña incorrectos" y 409 → "Ese email ya está registrado".
-- `middleware.ts`: redirige a `/login?next=` si falta `has_session`, y redirige de `/login` a `/prioritarias` si existe.
+- `src/proxy.ts` (el antiguo `middleware.ts` de Next.js): redirige a `/login?next=` si falta `has_session`, y redirige de `/login` a `/prioritarias` si existe.
 - Refresh automático ante un 401 en `client.ts`, con una sola promesa compartida entre requests concurrentes ([integracion-api.md](../specs/integracion-api.md#cliente-tipado)).
 - Hook `useMe()` y `UserMenu` con "Cerrar sesión" (`POST /auth/logout`, limpia la caché y redirige).
 - Manejo de `?error=` al volver del login con Google.
