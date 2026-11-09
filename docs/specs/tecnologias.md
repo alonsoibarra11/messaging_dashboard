@@ -21,6 +21,6 @@
 | Tests E2E | Playwright | Desde FE-13 |
 | Lint / formato | ESLint (config de Next) + Prettier | |
 | Errores | Sentry (`@sentry/nextjs`) | FE-13 |
-| Despliegue | Vercel (o el mismo proveedor que el backend) | FE-13 |
+| Despliegue | **Vercel**, región `iad1`, con el backend en Render y la base de datos en Supabase | Ver [despliegue.md](despliegue.md) (FE-13) |
 
 > **Auth:** el plan original mencionaba Auth.js o Clerk. Se descartan porque la sesión la emite y valida el backend (JWT en cookies `httpOnly`), según la arquitectura de "API gateway + auth". Así el frontend no guarda secretos y hay una sola fuente de verdad.

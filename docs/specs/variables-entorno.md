@@ -10,3 +10,5 @@ Van en `.env.local` (no se commitea). `.env.example` incluye todas las variables
 | `NEXT_PUBLIC_SENTRY_DSN` | | cliente | FE-13 |
 
 Las variables `NEXT_PUBLIC_*` quedan expuestas en el bundle, así que nunca deben contener secretos.
+
+`BACKEND_URL` (que usan los rewrites) y las `NEXT_PUBLIC_*` se leen **al hacer el build**: si cambian en Vercel, hay que volver a desplegar. Los valores de producción y de preview están en [despliegue.md](despliegue.md#variables-de-entorno).

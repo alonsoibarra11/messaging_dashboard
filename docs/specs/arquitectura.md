@@ -11,6 +11,7 @@ Navegador ──► Next.js (este repo) ──rewrites /api/*──► API gatew
 - El dashboard **no** contiene lógica de clasificación. Muestra lo que el backend ya clasificó y guardó.
 - Todas las llamadas REST van a `/api/v1/*` en el mismo origen. Next.js las reenvía a `BACKEND_URL` con `rewrites`, así las cookies `httpOnly` de sesión funcionan sin CORS.
 - El WebSocket se conecta directo al backend (`NEXT_PUBLIC_WS_URL`) con un ticket de un solo uso, porque los rewrites no hacen proxy de WebSocket.
+- En producción: Vercel (`app.<dominio>`) → Render (`api.<dominio>`). Ver [despliegue.md](despliegue.md).
 
 ## Rutas (App Router)
 
